@@ -30,3 +30,9 @@ If you don't find your "Run with PowerShell" menu anymore when right-clicking a 
 2. Choose Notepad, and ensure the ``` [x] Always use this app to open .ps1 files``` is checked
 
 ![Fig.4](/Screenshots/SetDefaultNotepadForPS1-2of2.png)
+
+3. You're done ! From now on, and until you change the default editor for .ps1 files, you'll see the "Run with PowerShell" context menu when you right-click a .PS1 file:
+
+![Fig.5](/Screenshots/SetDefaultNotepadForPS1-Conclusion.png)
+
+
