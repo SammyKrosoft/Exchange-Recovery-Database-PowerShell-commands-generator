@@ -15,5 +15,5 @@ This program is a Graphical User Interfice that will help you generating Exchang
 
 Just type .\Launch-RecoveryDatabaseCreateGUI.ps1 or "Run with Powershell" from Windows:
 
-![Fig.2](/ScreenShots/RunWithPowerShell.png)
+![Fig.2](/Screenshots/RunWithPowerShell.png)
 
