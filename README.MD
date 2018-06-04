@@ -18,3 +18,15 @@ Just type ```.\Launch-RecoveryDatabaseCreateGUI.ps1``` or "Run with Powershell" 
 ![Fig.2](/Screenshots/RunWithPowerShell.png)
 
 > Note: In order to see the "Run with Powershell" context menu on Windows Explorer, you need to set "Notepad" as the default "open with" program for .PS1 files
+
+## Miscellaneous : How to retrieve your "Run with Powershell" menu from Windows Explorer
+
+If you don't find your "Run with PowerShell" menu anymore when right-clicking a PS1 file, you just have to reset the default program to open .PS1 to be the basic Windows "Notepad". Here's how to do it :
+
+1. Right-click to any .PS1 file, and click "Open with":
+
+![Fig.3](/Screenshots/SetDefaultNotepadForPS1-1of2.png)
+
+2. Choose Notepad, and ensure the ``` [x] Always use this app to open .ps1 files``` is checked
+
+![Fig.4](/Screenshots/SetDefaultNotepadForPS1-2of2.png)
