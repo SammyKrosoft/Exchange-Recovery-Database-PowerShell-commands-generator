@@ -13,7 +13,8 @@ This program is a Graphical User Interfice that will help you generating Exchang
 
 ## Launching it
 
-Just type ```.\Launch-RecoveryDatabaseCreateGUI.ps1``` or "Run with Powershell" from Windows:
+Just type ```.\Launch-RecoveryDatabaseCreateGUI.ps1``` or "Run with Powershell" from Windows Explorer:
 
 ![Fig.2](/Screenshots/RunWithPowerShell.png)
 
+> Note: In order to see the "Run with Powershell" context menu on Windows Explorer, you need to set "Notepad" as the default "open with" program for .PS1 files
