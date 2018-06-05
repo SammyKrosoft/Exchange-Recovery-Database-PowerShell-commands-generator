@@ -185,8 +185,9 @@ $wpf.btnRun.add_Click({
     $commandline = $wpf.txtCommandLine.Text 
     $CommandLine = $commandline -replace ("`n","`r`n")
     $Commandline | clip.exe
-    $msg = "Command lines copied to the clipboard !"
-    [System.Windows.MessageBox]::Show($msg)
+    $title = "Copied !"
+    $msg = "Command lines copied to the clipboard ! `n`rUse CTRL+V on Notepad or on an Exchange Management Shell"
+    [System.Windows.MessageBox]::Show($msg,$title, "OK")
     #Invoke-expression $wpf.txtCommand.text
     $commandLine = $null
 })
