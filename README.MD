@@ -46,7 +46,10 @@ If you don't find your "Run with PowerShell" menu anymore when right-clicking a 
 
 # Links
 My TechNet Blog article about it :
+
 [Technet Link](https://blogs.technet.microsoft.com/samdrey/2018/06/05/powershell-command-line-generator-for-exchange-20102013-2016-recovery-database-creation-and-make-it-use-existing-database-and-log-files/ "Technet Blog Article about this tool")
+
+And the TechNet Gallery link :
 
 [Technet Gallery](https://gallery.technet.microsoft.com/Exchange-2010-2013-2016-bcd61dc7 "The latest release is also available on the TechNet Gallery")
 
