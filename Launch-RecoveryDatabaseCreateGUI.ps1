@@ -5,7 +5,11 @@ How-To GUI From Jim Moyle   :   https://github.com/JimMoyle/GUIDemo
 
 #>
 #region Global Variables
-$global:GUIversion = "1.0"
+$global:GUIversion = "1.1"
+<# Release notes
+v1.1 : Added "Copy to clipboard" button instead of "Run"
+V1.0 : initial version
+#>
 #Storing paths, values, server names, into variables for more flexible manipulation
 #EDB and LOG Folder paths:
 $global:defaultOriginalEDBFilePath = "H:\Recovery Database 001\RDB001.edb"
@@ -91,13 +95,13 @@ function update-cmd {
         $TempLogPath = $global:defaultTempLogPath
     }
 
-    $Comments1 = '<#******* Now BIG STEP #1 – Create the Recovery Database using the Temporary EDB file and LOG folder paths: ******* #>'
+    $Comments1 = '<#******* STEP #1 – Create the Recovery Database using the Temporary EDB file and LOG folder paths: ******* #>'
     $command1 = "New-MailboxDatabase -Recovery -Name ""$RDBName"" -Server $Server -EDBFilePath ""$TempEDBPath"" -LogFolderPath ""$TempLogPath"""
-    $Comments2 = '<#******* Now BIG STEP #2 – Move the Recovery Database EDB file and LOG folder paths to the paths containing your original files ******* #>'
+    $Comments2 = '<#******* STEP #2 – Move the Recovery Database EDB file and LOG folder paths to the paths containing your original files ******* #>'
     $Command2 = "Move-DatabasePath -Identity ""$RDBName"" -ConfigurationOnly -EdbFilePath ""$OriginalEDBFilePath"" -LogFolderPath ""$OriginalLOGFolderPath"""
-    $Comments3 = '<#******* Now BIG STEP #3 – CHECK that the paths of the new Recovery Database have moved to the original ones we wanted ! ******* #>'
+    $Comments3 = '<#******* STEP #3 – CHECK that the paths of the new Recovery Database have moved to the original ones we wanted ! ******* #>'
     $Command3 = "Get-MailboxDatabase ""$RDBName"" -Status | ft Name,EDBFilePath,LogFolderPath,mounted -a"
-    $Comments4 = '<#******* Now BIG STEP #4 – Mount your database ! And then check if "Mounted"  shows "True"  ******* #>'
+    $Comments4 = '<#******* STEP #4 – Mount your database ! And then check if "Mounted"  shows "True"  ******* #>'
     $command4 = ("Mount-Database ""$RDBName""") + "`n#Check if it's mounted:`n" + $Command3
 
     $wpf.txtCommandLine.text = $Comments1 + "`n" + $command1 + "`n`n" + $Comments2 + "`n" + $Command2 + "`n`n" + $Comments3 + "`n" + $Command3 + "`n`n" + $Comments4 + "`n" + $Command4 + "`n`n" + $Comments5 + "`n" + $Command5
@@ -153,7 +157,7 @@ $inputXML = @"
         <Label Content="Server where to store the Recovery Database on" HorizontalAlignment="Left" Margin="28,370,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chkServer" Content="" HorizontalAlignment="Left" Margin="28,396,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtCommandLine" HorizontalAlignment="Left" Height="382" Margin="408,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="618"/>
-        <Button x:Name="btnRun" Content="Run" HorizontalAlignment="Left" Margin="234,470,0,0" VerticalAlignment="Top" Width="138" Height="39"/>
+        <Button x:Name="btnRun" Content="Copy to Clipboard" HorizontalAlignment="Left" Margin="234,470,0,0" VerticalAlignment="Top" Width="138" Height="39"/>
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="528,470,0,0" VerticalAlignment="Top" Width="138" Height="39"/>
 
     </Grid>
@@ -178,9 +182,13 @@ $namedNodes | ForEach-Object {$wpf.Add($_.Name, $tempform.FindName($_.Name))}
 
 #region Buttons
 $wpf.btnRun.add_Click({
-    $msg = "Running the command"
-    Write-Host $msg
+    $commandline = $wpf.txtCommandLine.Text 
+    $CommandLine = $commandline -replace ("`n","`r`n")
+    $Commandline | clip.exe
+    $msg = "Command lines copied to the clipboard !"
+    [System.Windows.MessageBox]::Show($msg)
     #Invoke-expression $wpf.txtCommand.text
+    $commandLine = $null
 })
 
 $wpf.btnCancel.add_Click({
@@ -197,6 +205,7 @@ $wpf.NewRestoreDB.Add_Loaded({
 })
 #Things to load when the WPF form is rendered aka drawn on screen
 $wpf.NewRestoreDB.Add_ContentRendered({
+    $wpf.NewRestoreDB.Title += (" - v") + ($global:GUIversion)
     Update-cmd
 })
 $wpf.NewRestoreDB.add_Closing({
