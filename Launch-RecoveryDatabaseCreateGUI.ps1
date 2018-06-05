@@ -187,7 +187,7 @@ $wpf.btnRun.add_Click({
     $Commandline | clip.exe
     $title = "Copied !"
     $msg = "Command lines copied to the clipboard ! `n`rUse CTRL+V on Notepad or on an Exchange Management Shell"
-    [System.Windows.MessageBox]::Show($msg,$title, "OK")
+    [System.Windows.MessageBox]::Show($msg,$title, "OK","Asterisk")
     #Invoke-expression $wpf.txtCommand.text
     $commandLine = $null
 })
