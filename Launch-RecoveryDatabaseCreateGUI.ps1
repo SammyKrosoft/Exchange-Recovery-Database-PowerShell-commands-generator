@@ -5,15 +5,11 @@ How-To GUI From Jim Moyle   :   https://github.com/JimMoyle/GUIDemo
 
 #>
 #region Global Variables
-<<<<<<< HEAD
 $global:GUIversion = "1.1"
 <# Release notes
 v1.1 : Added "Copy to clipboard" button instead of "Run"
 V1.0 : initial version
 #>
-=======
-$global:GUIversion = "1.01"
->>>>>>> 349992a63a4518a82ed506243f6a2b65edf49db4
 #Storing paths, values, server names, into variables for more flexible manipulation
 #EDB and LOG Folder paths:
 $global:defaultOriginalEDBFilePath = "H:\Recovery Database 001\RDB001.edb"
