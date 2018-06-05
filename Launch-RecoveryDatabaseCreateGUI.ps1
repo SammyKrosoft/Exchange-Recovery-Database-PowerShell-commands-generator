@@ -5,7 +5,7 @@ How-To GUI From Jim Moyle   :   https://github.com/JimMoyle/GUIDemo
 
 #>
 #region Global Variables
-$global:GUIversion = "1.0"
+$global:GUIversion = "1.01"
 #Storing paths, values, server names, into variables for more flexible manipulation
 #EDB and LOG Folder paths:
 $global:defaultOriginalEDBFilePath = "H:\Recovery Database 001\RDB001.edb"
