@@ -17,7 +17,16 @@ Just type ```.\Launch-RecoveryDatabaseCreateGUI.ps1``` or "Run with Powershell" 
 
 ![Fig.2](/Screenshots/RunWithPowerShell.png)
 
-> Note: In order to see the "Run with Powershell" context menu on Windows Explorer, you need to set "Notepad" as the default "open with" program for .PS1 files
+Once you have the desired values for your Server name, your EDB file and LOG paths, etc..., Clicking on the [Copy to Clipboard] button will copy the command list to the Clipboard.
+
+=> that way, you will be able to paste your commands in a PowerShell script, or in a NOTEPAD, or directly in an Exchange Management Shell for immediate execution !
+
+![Fig.3](/Screenshots/CopiedToClipboard.png)
+
+
+> Note: In order to see the "Run with Powershell" context menu on Windows Explorer, you need to set "Notepad" as the default "open with" program for .PS1 files -> see the "Miscellaneous" section below if you don't have your "Run with PowerShell" menu and if you with to get it back.
+
+> Note2: if you reset the ".PS1" file association with NOTEPAD, you'll lose any previous association you made with ".PS1" files...
 
 ## Miscellaneous : How to retrieve your "Run with Powershell" menu from Windows Explorer
 
