@@ -4,7 +4,7 @@ With the help of            :   Jim Moyle @jimmoyle
 How-To GUI From Jim Moyle   :   https://github.com/JimMoyle/GUIDemo
 
 #>
-# region Global Variables
+#region Global Variables
 $global:GUIversion = "1.0"
 #Storing paths, values, server names, into variables for more flexible manipulation
 #EDB and LOG Folder paths:
@@ -17,8 +17,7 @@ $global:defaultServer = "Server001"
 #Temporary EDB file and LOG folder paths – because New-MailboxDatabase –Recovery requires to have a file path, and New-MailboxDatabase –Recovery won’t let you create a Database, even unmounted, where files already exist, we must first create the Recovery Database using temporary paths. We will change these after using Move-DatabasePath –ConfigurationOnly <- cool, eh !
 $global:defaultTempEDBPath = "c:\temp\r-edb.edb"
 $global:defaultTempLogPath = "c:\temp\"
-#Endregion
-
+#endregion
 
 #========================================================
 #region Functions definitions (NOT the WPF form events)
