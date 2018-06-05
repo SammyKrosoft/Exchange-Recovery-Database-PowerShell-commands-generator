@@ -1,7 +1,7 @@
 # PowerShell command line generator for Exchange (2010,2013, 2016) Recovery Database creation and make it use existing database and log files
 
 ## Description
-This program is a Graphical User Interfice that will help you generating Exchange Management Shell command lines to:
+This program is a Graphical User Interface that will help you generating Exchange Management Shell command lines to:
 
 1. Create a Recovery Database using temporary path for the database and its corresponding LOG files set
 2. Point that newly created Recovery Database to an existing database file and its corresponding LOG files set
