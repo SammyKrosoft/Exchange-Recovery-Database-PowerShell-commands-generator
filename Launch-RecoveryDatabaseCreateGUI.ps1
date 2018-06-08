@@ -5,8 +5,9 @@ How-To GUI From Jim Moyle   :   https://github.com/JimMoyle/GUIDemo
 
 #>
 #region Global Variables
-$global:GUIversion = "1.1"
+$global:GUIversion = "1.2"
 <# Release notes
+v1.2 : Fixed potential crash at startup
 v1.1 : Added "Copy to clipboard" button instead of "Run"
 V1.0 : initial version
 #>
@@ -312,4 +313,9 @@ $wpf.chkServer.add_UnChecked({
 
 IsPSV3 | out-null
 # Load the form:
-$wpf.NewRestoreDB.ShowDialog() | Out-Null
+# Older way >>>>> $wpf.NewRestoreDB.ShowDialog() | Out-Null >>>>> generates crash if run multiple times
+# USing method from https://gist.github.com/altrive/6227237 to avoid crashing Powershell after we re-run the script after some inactivity time or if we run it several times consecutively...
+$async = $wpf.NewRestoreDB.Dispatcher.InvokeAsync({
+    $wpf.NewRestoreDB.ShowDialog() | Out-Null
+})
+$async.Wait() | Out-Null
